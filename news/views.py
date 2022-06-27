@@ -90,5 +90,5 @@ class NewsThreeListAPIView(generics.ListAPIView):
 class NewsOneMainAPIView(generics.ListAPIView):
     authentication_classes = []
     permission_classes = [AllowAny]
-    queryset = News.objects.filter(is_main=True).filter(is_active=True).first()
+    queryset = News.objects.filter(is_main=True).filter(is_active=True)[:1]
     serializer_class = NewsDetailSerializer

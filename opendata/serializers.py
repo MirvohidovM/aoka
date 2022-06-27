@@ -6,7 +6,7 @@ from opendata.models import Opendata, OpendataAttachments
 class OpendataAttachmentsSerializer(ModelSerializer):
     class Meta:
         model = OpendataAttachments
-        fields = ['name', 'file', ]
+        fields = ['name', 'xml', 'csv', 'json', 'xls', 'rdf']
 
 
 class OpendataListSerializer(ModelSerializer):
@@ -15,7 +15,7 @@ class OpendataListSerializer(ModelSerializer):
 
     class Meta:
         model = Opendata
-        fields = ['slug', 'title', 'link', 'ilova', 'files_count', 'attachments']
+        fields = ['slug', 'title', 'link', 'files_count', 'attachments']
 
 
 
@@ -25,4 +25,4 @@ class OpendataDetailSerializer(ModelSerializer):
     files_count = IntegerField()
     class Meta:
         model = Opendata
-        fields = ['title', 'link', 'ilova', 'files_count', 'attachments']
+        fields = ['title', 'link', 'files_count', 'attachments']

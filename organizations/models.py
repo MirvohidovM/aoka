@@ -4,7 +4,7 @@ from django.utils.crypto import get_random_string
 
 from baseapp.models import BaseModel
 from config.utils import  unique_slug_generator
-from config.validation import file_validation_exception
+from config.validation import validate_file_extension
 
 
 class Organization(BaseModel):
@@ -12,7 +12,7 @@ class Organization(BaseModel):
     content = models.TextField(verbose_name='Mazmuni')
     link = models.URLField(max_length=500, null=True, blank=True, verbose_name="Havola")
     image = models.FileField(upload_to="images/organization", blank=True, null=True,
-                             verbose_name="Rasm", validators=[file_validation_exception])
+                             verbose_name="Rasm", validators=[validate_file_extension])
     index = models.IntegerField(null=True, blank=True)
 
     class Meta:
@@ -31,7 +31,7 @@ class Organization(BaseModel):
 
 
 class AccountOrganization(models.Model):
-    organization = models.ForeignKey(Organization, releted_name='accounts', on_delete=models.CASCADE)
+    organization = models.ForeignKey(Organization, related_name='accounts', on_delete=models.CASCADE)
     title = models.CharField(max_length=510, verbose_name='Hisobot nomlanishi')
     account = models.FileField(upload_to='files/organization', blank=True, null=True,
                                verbose_name='Hisobot fayli')

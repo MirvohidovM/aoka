@@ -4,16 +4,14 @@ from django.utils.crypto import get_random_string
 
 from baseapp.models import BaseModel
 from config.utils import random_string_generator, unique_slug_generator
-from config.validation import file_validation_exception
-from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFit
+from config.validation import validate_file_extension
 
 
 class UsefulLink(BaseModel):
     title = models.CharField(max_length=256, blank=True, null=True, verbose_name="Sarlavha")
     link = models.URLField(max_length=500, null=True, blank=True, verbose_name="Havola")
     image = models.FileField(upload_to="images/usefullink", blank=True, null=True,
-                             verbose_name="Rasm", validators=[file_validation_exception])
+                             verbose_name="Rasm", validators=[validate_file_extension])
     index = models.IntegerField(null=True, blank=True)
 
     class Meta:

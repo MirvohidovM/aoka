@@ -7,14 +7,31 @@ from baseapp.models import BaseModel
 from config.utils import unique_slug_generator
 
 
-def directory(instance, filename):
-    return 'opendata/{}/{}'.format(instance.opendata.slug, filename)
+def xml_directory(instance, filename):
+    return 'opendata/xml/{}/{}'.format(instance.opendata.slug, filename)
+
+
+def csv_directory(instance, filename):
+    return 'opendata/csv/{}/{}'.format(instance.opendata.slug, filename)
+
+
+def json_directory(instance, filename):
+    return 'opendata/json/{}/{}'.format(instance.opendata.slug, filename)
+
+
+def xls_directory(instance, filename):
+    return 'opendata/xls/{}/{}'.format(instance.opendata.slug, filename)
+
+
+def rdf_directory(instance, filename):
+    return 'opendata/rdf/{}/{}'.format(instance.opendata.slug, filename)
+
 
 
 class Opendata(BaseModel):
     title = models.CharField(max_length=500, verbose_name="Sarlavha")
     index = models.IntegerField(null=True, blank=True)
-    ilova = models.CharField(max_length=500, null=True, blank=True, verbose_name="Ilova")
+    # ilova = models.CharField(max_length=500, null=True, blank=True, verbose_name="Ilova")
     link = models.URLField(max_length=500, null=True, blank=True, verbose_name="Havola")
     menu = TreeForeignKey(Menu, related_name='opendata', null=True, blank=True,
                              on_delete=models.SET_NULL, verbose_name='Menyu')
@@ -28,11 +45,16 @@ class Opendata(BaseModel):
     def __str__(self) -> str:
         return self.title
 
+
 class OpendataAttachments(models.Model):
     opendata = models.ForeignKey(
         Opendata, on_delete=models.CASCADE, related_name='attachments', verbose_name='Fayllar')
     name = models.CharField(max_length=255, verbose_name="Nomi")
-    file = models.FileField(upload_to=directory, verbose_name="Fayl")
+    xml = models.FileField(upload_to=xml_directory)
+    csv = models.FileField(upload_to=csv_directory)
+    json = models.FileField(upload_to=json_directory)
+    xls = models.FileField(upload_to=xls_directory)
+    rdf = models.FileField(upload_to=rdf_directory)
 
     class Meta:
         db_table = "open_data_attachments"

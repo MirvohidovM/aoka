@@ -38,7 +38,7 @@ DEBUG = True
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'config.settings'
 
-AUTH_USER_MODEL = 'accounts.CustomUser'
+# AUTH_USER_MODEL = 'accounts.CustomUser'
 
 from datetime import timedelta
 
@@ -49,6 +49,8 @@ AUTO_LOGOUT = {
 # Application definition
 
 INSTALLED_APPS = [
+    'debug_toolbar',
+
     'jazzmin',
     'corsheaders',
     'modeltranslation',

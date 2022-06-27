@@ -5,7 +5,7 @@ from django import forms
 from tinymce.widgets import TinyMCE
 
 
-class NewsImagesAdmin(admin.c):
+class NewsImagesAdmin(admin.TabularInline):
     model = NewsImages
     extra = 1
     verbose_name = 'Yangilik Rasmi'

@@ -67,7 +67,6 @@ class NewsImages(models.Model):
 
     class Meta:
         db_table = "news_images"
-        ordering = ['index']
 
     def save(self, *args, **kwargs):
         if self.image:

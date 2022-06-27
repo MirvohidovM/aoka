@@ -1,15 +1,15 @@
 from modeltranslation.translator import register, TranslationOptions
 
-from opendata.models import Opendata, OpendataImages
+from opendata.models import Opendata, OpendataAttachments
 from menu.models import Menu
 from news.models import News
 from useful_link.models import UsefulLink
 from organizations.models import Organization, AccountOrganization
-from contact.models import Contact, LandmarkPhotos
+from contact.models import Contact
 
 @register(Contact)
 class ContactTranslationOptions(TranslationOptions):
-    fields = ('address', 'transport', 'position', 'reseption_days',)
+    fields = ('address', 'transport', 'position', 'reception_days',)
 
 
 @register(Menu)
@@ -25,12 +25,12 @@ class UsefulLinkTranslationOptions(TranslationOptions):
 
 @register(Opendata)
 class OpendataTranslationOptions(TranslationOptions):
-    fields = ['title', 'ilova']
+    fields = ['title',]
 
 
-@register(OpendataImages)
-class OpendataImagesTranslationOptions(TranslationOptions):
-    fields = ('name', 'file')
+@register(OpendataAttachments)
+class OpendataAttachmentsTranslationOptions(TranslationOptions):
+    fields = ('name',)
     required_languages = ('uz',)
 
 
@@ -48,5 +48,5 @@ class OrganizationTranslationOptions(TranslationOptions):
 
 @register(AccountOrganization)
 class AccountOrganizationTranslationOptions(TranslationOptions):
-    fields = ('title')
+    fields = ('title',)
     required_languages = ('uz',)
