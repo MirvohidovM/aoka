@@ -17,8 +17,8 @@ class Organization(BaseModel):
 
     class Meta:
         db_table = "organization"
-        verbose_name = "Tahskilot "
-        verbose_name_plural = "Tahskilotlar"
+        verbose_name = "Tashkilot "
+        verbose_name_plural = "Tashkilotlar"
         ordering = ['index']
 
     def __str__(self):

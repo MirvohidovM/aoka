@@ -42,14 +42,14 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'config.settings'
 
 from datetime import timedelta
 
-AUTO_LOGOUT = {
-                'IDLE_TIME': timedelta(minutes=10),
-                'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
-                }
+# AUTO_LOGOUT = {
+#                 'IDLE_TIME': timedelta(minutes=10),
+#                 'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
+#                 }
 # Application definition
 
 INSTALLED_APPS = [
-    'debug_toolbar',
+    # 'debug_toolbar',
 
     'jazzmin',
     'corsheaders',
@@ -66,7 +66,7 @@ INSTALLED_APPS = [
     'config',
     'django_filters',
     'drf_yasg',
-    'django_summernote',
+    # 'django_summernote',
     'mptt',
     'tinymce',
     'imagekit',
@@ -91,7 +91,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_auto_logout.middleware.auto_logout',
+    # 'django_auto_logout.middleware.auto_logout',
     'django.middleware.locale.LocaleMiddleware'
 ]
 
@@ -109,7 +109,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django_auto_logout.context_processors.auto_logout_client',
+                # 'django_auto_logout.context_processors.auto_logout_client',
             ],
         },
     },
@@ -306,12 +306,10 @@ JAZZMIN_SETTINGS = {
     "site_header": "AOKA",
     "site_brand": "AOKA",
 
-    "order_with_respect_to": ['accounts', 
-                                "auth",
-                                'menu', 'about', 'post', 'department',
-                                'contact', 'event', 'vacancy', 'opendata',
-                               'useful_link', 'gallery', 'faq', 
-
+    "order_with_respect_to": [
+                                # "auth.User",  "auth.Group",
+                                'auth', 'menu', 'contact', 'opendata',
+                               'useful_link', 'news', 'organizations',
                               ],
 
     "icons": {
@@ -319,8 +317,8 @@ JAZZMIN_SETTINGS = {
         "menu.menu": "fas fa-list",
         "useful_link.usefullink": "fas fa-link",
         "opendata.opendata": "far fa-folder-open",
-        "post.post": "fas fa-newspaper",
-        "post.tags": "fas fa-tags",
+        "news.news": "fas fa-newspaper",
+        # "news": "fas fa-tags",
         "contact.contact": "fas fa-id-card",
     },
 }
