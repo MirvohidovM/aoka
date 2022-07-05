@@ -38,15 +38,7 @@ DEBUG = True
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'config.settings'
 
-# AUTH_USER_MODEL = 'accounts.CustomUser'
-
-from datetime import timedelta
-
-# AUTO_LOGOUT = {
-#                 'IDLE_TIME': timedelta(minutes=10),
-#                 'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
-#                 }
-# Application definition
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 INSTALLED_APPS = [
     # 'debug_toolbar',
@@ -66,12 +58,12 @@ INSTALLED_APPS = [
     'config',
     'django_filters',
     'drf_yasg',
-    # 'django_summernote',
+    'django_summernote',
     'mptt',
     'tinymce',
     'imagekit',
     'slugify',
-
+    'accounts',
     'baseapp',
     'useful_link',
     'menu',
@@ -91,7 +83,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'django_auto_logout.middleware.auto_logout',
     'django.middleware.locale.LocaleMiddleware'
 ]
 
@@ -109,7 +100,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'django_auto_logout.context_processors.auto_logout_client',
             ],
         },
     },
@@ -250,53 +240,6 @@ CORS_ALLOW_HEADERS = [
 LOGIN_REDIRECT_URL = '/'
 CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken', 'Access-Control-Allow-Origin']
 SECURE_BROWSER_XSS_FILTER = True
-#
-# from datetime import timedelta
-#
-# SIMPLE_JWT = {
-#     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
-#     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
-#     'ROTATE_REFRESH_TOKENS': False,
-#     'BLACKLIST_AFTER_ROTATION': True,
-#     'UPDATE_LAST_LOGIN': False,
-#
-#     'ALGORITHM': 'HS256',
-#     'SIGNING_KEY': 'SecretadliyaKey123',
-#     'VERIFYING_KEY': None,
-#     'AUDIENCE': None,
-#     'ISSUER': None,
-#
-#     'AUTH_HEADER_TYPES': ('Bearer',),
-#     'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
-#     'USER_ID_FIELD': 'id',
-#     'USER_ID_CLAIM': 'user_id',
-#     'USER_AUTHENTICATION_RULE': 'rest_framework_simplejwt.authentication.default_user_authentication_rule',
-#
-#     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
-#     'TOKEN_TYPE_CLAIM': 'token_type',
-#
-#     'JTI_CLAIM': 'jti',
-#
-#     'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
-#     'SLIDING_TOKEN_LIFETIME': timedelta(minutes=30),
-#     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
-#
-#     # custom
-#     # Cookie name. Enables cookies if value is set.
-#     'AUTH_COOKIE': 'access_token',
-#     # A string like "example.com", or None for standard domain cookie.
-#     'AUTH_COOKIE_DOMAIN': 'back.aoka.technocorp.uz',
-#     # Whether the auth cookies should be secure (https:// only).
-#     'AUTH_COOKIE_SECURE': True,
-#     # 'AUTH_COOKIE_SECURE': False,
-#     # Http only cookie flag.It's not fetch by javascript.
-#     'AUTH_COOKIE_HTTP_ONLY': True,
-#     # 'AUTH_COOKIE_HTTP_ONLY': False,
-#     'AUTH_COOKIE_PATH': '/',  # The path of the auth cookie.
-#     # Whether to set the flag restricting cookie leaks on cross-site requests. This can be 'Lax', 'Strict', or None to disable the flag.
-#     'AUTH_COOKIE_SAMESITE': 'None',
-#     'AUTH_COOKIE_REFRESH': 'refresh_token',
-# }
 
 USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -306,19 +249,20 @@ JAZZMIN_SETTINGS = {
     "site_header": "AOKA",
     "site_brand": "AOKA",
 
-    "order_with_respect_to": [
+    "order_with_respect_to": [  'accounts',
                                 # "auth.User",  "auth.Group",
                                 'auth', 'menu', 'contact', 'opendata',
                                'useful_link', 'news', 'organizations',
                               ],
 
     "icons": {
+        "accounts.CustomUser": "fas fa-user",
         "auth.Group": "fas fa-users",
         "menu.menu": "fas fa-list",
         "useful_link.usefullink": "fas fa-link",
         "opendata.opendata": "far fa-folder-open",
         "news.news": "fas fa-newspaper",
-        # "news": "fas fa-tags",
+        "organizations.organization": "fas fa-sitemap",
         "contact.contact": "fas fa-id-card",
     },
 }
