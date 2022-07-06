@@ -6,6 +6,23 @@ from news.models import News
 from useful_link.models import UsefulLink
 from organizations.models import Organization, AccountOrganization
 from contact.models import Contact
+from agency.models import Lidership, CentralApparatus, RegionalAdministration
+
+
+@register(Lidership)
+class LidershipTranslationOptions(TranslationOptions):
+    fields = ['position', 'fullname', 'biography', 'reception_times']
+
+
+@register(CentralApparatus)
+class CentralApparatusTranslationOptions(TranslationOptions):
+    fields = ['position', 'fullname', 'responsibility']
+
+
+@register(RegionalAdministration)
+class RegionalAdministrationTranslationOptions(TranslationOptions):
+    fields = ['position', 'fullname', 'address', 'reception_times', 'regional_name']
+
 
 @register(Contact)
 class ContactTranslationOptions(TranslationOptions):

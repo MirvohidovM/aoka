@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'tinymce',
     'imagekit',
     'slugify',
+
     'accounts',
     'baseapp',
     'useful_link',
@@ -71,6 +72,7 @@ INSTALLED_APPS = [
     'news',
     'contact',
     'organizations',
+    'agency',
 ]
 
 MIDDLEWARE = [
