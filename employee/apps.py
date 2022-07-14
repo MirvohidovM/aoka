@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class AgencyConfig(AppConfig):
+class EmployeeConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'agency'
-    verbose_name = 'Agentlik'
+    name = 'employee'
+    verbose_name = 'Xodimlar'

@@ -6,7 +6,7 @@ from news.models import News
 from useful_link.models import UsefulLink
 from organizations.models import Organization, AccountOrganization
 from contact.models import Contact
-from agency.models import Lidership, CentralApparatus, RegionalAdministration
+from employee.models import Lidership, CentralApparatus, RegionalAdministration
 
 
 @register(Lidership)

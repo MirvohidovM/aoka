@@ -61,5 +61,5 @@ urlpatterns += i18n_patterns(
     path('api/organizations/', include('organizations.urls')),
     path('api/news/', include('news.urls')),
     path('api/contact/', include('contact.urls')),
-    path('agency/', include('agency.urls')),
+    path('api/employee/', include('employee.urls')),
 )
