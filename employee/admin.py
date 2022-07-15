@@ -1,6 +1,7 @@
 from django.contrib import admin
+from solo.admin import SingletonModelAdmin
 
-from .models import Lidership, CentralApparatus, RegionalAdministration
+from .models import Lidership, CentralApparatus, RegionalAdministration, PressSecretary
 
 
 class LidershipAdmin(admin.ModelAdmin):
@@ -74,6 +75,19 @@ class RegionalAdministrationAdmin(admin.ModelAdmin):
         return super().save_model(request, obj, form, change)
 
 
+class PressSecretaryAdmin(SingletonModelAdmin):
+    fields = ('fullname', 'biography', 'phone', 'email', )
+    list_display = ('fullname', 'biography', 'phone', 'email', )
+    actions = ['delete_selected']
+
+    def delete_selected(self, request, obj):
+        for o in obj:
+            o.delete()
+
+    delete_selected.short_description = "O'chirish"
+
+
+admin.site.register(PressSecretary, PressSecretaryAdmin)
 admin.site.register(Lidership, LidershipAdmin)
 admin.site.register(CentralApparatus, CentralApparatusAdmin)
 admin.site.register(RegionalAdministration, RegionalAdministrationAdmin)

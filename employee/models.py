@@ -1,4 +1,5 @@
 from django.db import models
+from solo.models import SingletonModel
 
 from baseapp.models import BaseModel
 
@@ -61,3 +62,18 @@ class RegionalAdministration(BaseModel):
 
     def __str__(self):
         return self.regional_name
+
+
+class PressSecretary(SingletonModel):
+    fullname = models.CharField(max_length=255, verbose_name="To'liq ismi")
+    biography = models.TextField(verbose_name='Biografiyasi')
+    phone = models.CharField(max_length=30, verbose_name='Telefon raqami')
+    email = models.EmailField()
+
+    class Meta:
+        db_table = 'press_secretary'
+        verbose_name = 'Matbuot kotibi'
+        verbose_name_plural = 'Matbuot kotibi'
+
+    def __str__(self):
+        return self.fullname
