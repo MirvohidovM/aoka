@@ -41,3 +41,9 @@ class RegionalAdministrationSerializer(serializers.ModelSerializer):
         model = RegionalAdministration
         fields = ['position', 'fullname', 'address', 'reception_times',
                   'regional_name', 'phone', 'email', 'index']
+
+
+class PressSecretarySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PressSecretary
+        fields = ['fullname', 'biography', 'phone', 'email']
