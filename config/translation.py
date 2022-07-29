@@ -7,6 +7,7 @@ from useful_link.models import UsefulLink
 from organizations.models import Organization, AccountOrganization
 from contact.models import Contact
 from employee.models import Lidership, CentralApparatus, RegionalAdministration
+from data.models import Data
 
 
 @register(Lidership)
@@ -27,6 +28,11 @@ class RegionalAdministrationTranslationOptions(TranslationOptions):
 @register(Contact)
 class ContactTranslationOptions(TranslationOptions):
     fields = ('address', 'transport', 'position', 'reception_days',)
+
+
+@register(Data)
+class DataTranslationOptions(TranslationOptions):
+    fields = ('title', 'content',)
 
 
 @register(Menu)

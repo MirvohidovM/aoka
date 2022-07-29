@@ -34,7 +34,7 @@ class OrganizationDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AccountOrganization
-        fields = ['title', 'content', 'link', 'accounts']
+        fields = ['title', 'content', 'link', 'lider_position', 'lider_name', 'reception_days', 'accounts']
 
 
 class OrganizationListSerializer(serializers.ModelSerializer):

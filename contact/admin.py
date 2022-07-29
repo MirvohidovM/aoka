@@ -5,7 +5,7 @@ from .models import Contact
 
 
 class ContactAdmin(SingletonModelAdmin):
-    exclude = ['address', 'transport', 'position', 'reseption_days',]
+    exclude = ['position', 'address', 'transport', 'reception_days']
 
     actions = ['delete_selected']
 

@@ -14,6 +14,9 @@ class Organization(BaseModel):
     image = models.FileField(upload_to="images/organization", blank=True, null=True,
                              verbose_name="Rasm", validators=[validate_file_extension])
     index = models.IntegerField(null=True, blank=True)
+    lider_position = models.CharField(max_length=256, verbose_name='Boshqaruvchisi lavozimi')
+    lider_name = models.CharField(max_length=256, verbose_name='Boshqaruvchi nomi')
+    reception_days = models.CharField(max_length=256, verbose_name='Qabul vaqtlari')
 
     class Meta:
         db_table = "organization"

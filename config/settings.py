@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'contact',
     'organizations',
     'employee',
+    'data',
 ]
 
 MIDDLEWARE = [
@@ -263,6 +264,7 @@ JAZZMIN_SETTINGS = {
         "news.news": "fas fa-newspaper",
         "organizations.organization": "fas fa-sitemap",
         "contact.contact": "fas fa-id-card",
+        "data.data": "fas fa-info",
     },
 }
 

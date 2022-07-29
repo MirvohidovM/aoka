@@ -23,6 +23,8 @@ class OpenDataForm(forms.ModelForm):
         widgets={
             'menu': forms.Select(attrs={'class': 'bootstrap-select', 'data-width':"80%"})
             }
+
+
 class OpendataAdmin(admin.ModelAdmin):
     list_display = ('title_uz', 'menu','link', 'index')
     list_filter = ('menu',  )
