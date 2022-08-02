@@ -1,6 +1,6 @@
 from modeltranslation.translator import register, TranslationOptions
 
-from opendata.models import Opendata, OpendataAttachments
+from opendata.models import Opendata, OpendataAttachments, OpendataAttachmentsFiles
 from menu.models import Menu
 from news.models import News
 from useful_link.models import UsefulLink
@@ -53,8 +53,13 @@ class OpendataTranslationOptions(TranslationOptions):
 
 @register(OpendataAttachments)
 class OpendataAttachmentsTranslationOptions(TranslationOptions):
-    fields = ('name',)
+    fields = ('title',)
     required_languages = ('uz',)
+
+
+@register(OpendataAttachmentsFiles)
+class OpendataAttachFilesTranslanslationsOptions(TranslationOptions):
+    fields = ('name', )
 
 
 @register(News)

@@ -261,10 +261,12 @@ JAZZMIN_SETTINGS = {
         "menu.menu": "fas fa-list",
         "useful_link.usefullink": "fas fa-link",
         "opendata.opendata": "far fa-folder-open",
+        "opendata.opendataattachments": "fas fa-plus",
         "news.news": "fas fa-newspaper",
         "organizations.organization": "fas fa-sitemap",
         "contact.contact": "fas fa-id-card",
         "data.data": "fas fa-info",
+        "employee.regionaladministration": "fas fa-location-crosshairs",
     },
 }
 
