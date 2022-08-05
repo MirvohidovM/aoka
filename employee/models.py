@@ -49,7 +49,7 @@ class RegionalAdministration(BaseModel):
     fullname = models.CharField(max_length=255, verbose_name="To'liq ismi")
     address = models.CharField(max_length=510, verbose_name="Manzil")
     phone = models.CharField(max_length=30, verbose_name='Qabul raqami')
-    email = models.EmailField()
+    email = models.EmailField(verbose_name='Elektron pochta')
     reception_times = models.CharField(max_length=255, verbose_name='Qabul vaqtlari')
     regional_name = models.CharField(max_length=510, verbose_name='Hududiy nomi')
     index = models.PositiveSmallIntegerField(verbose_name='Tartib raqami')
